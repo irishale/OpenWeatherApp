@@ -9,15 +9,15 @@
 import Foundation
 
 class WeatherService {
-    let kAppId = "b6907d289e10d714a6e88b30761fae22"
+    private let kAppId = "b6907d289e10d714a6e88b30761fae22"
     
     // TODO: сервис регистрации недоступен, пока используем примеры
-    let kBaseUrl = "https://samples.openweathermap.org"
-    let kCurrentForecastPath = "/data/2.5/weather"
+    private let kBaseUrl = "https://samples.openweathermap.org"
+    private let kCurrentForecastPath = "/data/2.5/weather"
 
-    let defaultSession = URLSession(configuration: .default)
+    private let defaultSession = URLSession(configuration: .default)
     
-    var urlComponents: URLComponents? {
+    private var urlComponents: URLComponents? {
         guard var urlComponents = URLComponents(string: kBaseUrl) else { return nil }
         urlComponents.queryItems = [URLQueryItem(name: "appid", value: kAppId)]
         

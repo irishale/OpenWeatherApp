@@ -22,6 +22,12 @@ class CurrentForecastViewController: UIViewController {
     // MARK: Injections
     lazy var presenter: CurrentForecastPresenterProtocol = CurrentForecastPresenter(view: self)
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        presenter.fetchCurrentForecast()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

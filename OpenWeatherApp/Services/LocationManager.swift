@@ -10,7 +10,7 @@ import Foundation
 import CoreLocation
 
 class LocationManager: NSObject {
-    lazy var locationManager: CLLocationManager = {
+    private lazy var locationManager: CLLocationManager = {
         var locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
