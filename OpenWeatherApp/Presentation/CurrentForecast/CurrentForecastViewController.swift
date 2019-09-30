@@ -25,7 +25,7 @@ class CurrentForecastViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        presenter.fetchCurrentForecast()
+//        presenter.fetchCurrentForecast()
     }
     
     override func viewDidLoad() {

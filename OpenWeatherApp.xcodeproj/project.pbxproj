@@ -20,6 +20,7 @@
 		914C4C222342931300F3EC45 /* FutureForecastPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914C4C212342931300F3EC45 /* FutureForecastPresenter.swift */; };
 		914C4C242342934C00F3EC45 /* FutureForecastViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914C4C232342934C00F3EC45 /* FutureForecastViewProtocol.swift */; };
 		914C4C262342937F00F3EC45 /* FutureForecastPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914C4C252342937F00F3EC45 /* FutureForecastPresenterProtocol.swift */; };
+		914C4C2C234297D000F3EC45 /* CurrentForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914C4C2B234297D000F3EC45 /* CurrentForecastViewModel.swift */; };
 		91E14C9E2341E15400781CD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E14C9D2341E15400781CD7 /* AppDelegate.swift */; };
 		91E14CA02341E15400781CD7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E14C9F2341E15400781CD7 /* MainViewController.swift */; };
 		91E14CA32341E15400781CD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91E14CA12341E15400781CD7 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		914C4C212342931300F3EC45 /* FutureForecastPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureForecastPresenter.swift; sourceTree = "<group>"; };
 		914C4C232342934C00F3EC45 /* FutureForecastViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureForecastViewProtocol.swift; sourceTree = "<group>"; };
 		914C4C252342937F00F3EC45 /* FutureForecastPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureForecastPresenterProtocol.swift; sourceTree = "<group>"; };
+		914C4C2B234297D000F3EC45 /* CurrentForecastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentForecastViewModel.swift; sourceTree = "<group>"; };
 		91E14C9A2341E15400781CD7 /* OpenWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91E14C9D2341E15400781CD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91E14C9F2341E15400781CD7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 		914C4C0E234284DF00F3EC45 /* CurrentForecast */ = {
 			isa = PBXGroup;
 			children = (
+				914C4C2A234297BC00F3EC45 /* ViewModel */,
 				914C4C29234293F900F3EC45 /* Protocols */,
 				914C4C102342850F00F3EC45 /* CurrentForecastViewController.swift */,
 				914C4C122342852400F3EC45 /* CurrentForecast.storyboard */,
@@ -114,6 +117,14 @@
 				914C4C1F23428A7400F3EC45 /* CurrentForecastPresenterProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		914C4C2A234297BC00F3EC45 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				914C4C2B234297D000F3EC45 /* CurrentForecastViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		91E14C912341E15400781CD7 = {
@@ -280,6 +291,7 @@
 				914C4C0B234267DC00F3EC45 /* Constants.swift in Sources */,
 				91E14CB72341EE6D00781CD7 /* LocationManager.swift in Sources */,
 				914C4C0D234277DD00F3EC45 /* ImageLoader.swift in Sources */,
+				914C4C2C234297D000F3EC45 /* CurrentForecastViewModel.swift in Sources */,
 				914C4C2023428A7400F3EC45 /* CurrentForecastPresenterProtocol.swift in Sources */,
 				914C4C1E234289EE00F3EC45 /* CurrentForecastViewProtocol.swift in Sources */,
 				914C4C262342937F00F3EC45 /* FutureForecastPresenterProtocol.swift in Sources */,
