@@ -9,6 +9,7 @@
 import UIKit
 
 class CurrentForecastViewController: UIViewController {
+    
     // MARK: Outlets
     @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
@@ -25,7 +26,7 @@ class CurrentForecastViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        presenter.fetchCurrentForecast()
+        presenter.fetchCurrentForecast()
     }
     
     override func viewDidLoad() {
@@ -39,5 +40,23 @@ class CurrentForecastViewController: UIViewController {
 }
 
 extension CurrentForecastViewController: CurrentForecastViewProtocol {
+    func showPopup() {
+        
+    }
     
+    func startActivityIndicator() {
+        
+    }
+    
+    func stopActivityIndicator() {
+        
+    }
+    
+    func updateWeatherInfo() {
+        
+    }
+    
+    func updateImage() {
+        
+    }
 }

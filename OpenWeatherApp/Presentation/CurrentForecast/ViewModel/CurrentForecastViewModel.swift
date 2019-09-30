@@ -17,30 +17,36 @@ struct CurrentForecastViewModel {
     let kWindSpeedTitle = "Wind speed"
     let kWindDirectionTitle = "Wind direction"
     
-    let kTitleFontSize: CGFloat = 12
-    let kValueFontSize: CGFloat = 10
-    
     // MARK: Properties
-    let weatherIconImage: Data
-    let temperature: String
-    let title: String
+    var weatherIconData: Data? = nil
+    let temperature: String!
+    let title: String!
     
     var pressure: NSAttributedString
     var humidity: NSAttributedString
     var windSpeed: NSAttributedString
     var windDirecton: NSAttributedString
     
-    mutating func configureAdditionalInfo(pressure: String,
-                                 humidity: String,
-                                 windSpeed: String,
-                                 windDirecton: String) {
-        self.pressure = configureAdditionalBlock(title: kPressureTitle, value: pressure)
-        self.humidity = configureAdditionalBlock(title: kHumidityTitle, value: humidity)
-        self.windSpeed = configureAdditionalBlock(title: kWindSpeedTitle, value: windSpeed)
-        self.windDirecton = configureAdditionalBlock(title: kWindDirectionTitle, value: windDirecton)
+
+    init(temperature: String,
+         title: String,
+         pressure: String,
+         humidity: String,
+         windSpeed: String,
+         windDirecton: String) {
+        
+        self.temperature = temperature
+        self.title = title
+        self.pressure = CurrentForecastViewModel.configureAdditionalBlock(kPressureTitle, pressure)
+        self.humidity = CurrentForecastViewModel.configureAdditionalBlock(kHumidityTitle, humidity)
+        self.windSpeed = CurrentForecastViewModel.configureAdditionalBlock(kWindSpeedTitle, windSpeed)
+        self.windDirecton = CurrentForecastViewModel.configureAdditionalBlock(kWindDirectionTitle, windDirecton)
     }
     
-    private func configureAdditionalBlock(title: String, value: String) -> NSAttributedString {
+    private static func configureAdditionalBlock(_ title: String, _ value: String) -> NSAttributedString {
+        let kTitleFontSize: CGFloat = 12
+        let kValueFontSize: CGFloat = 10
+        
         let titleAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.black,
             NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: kTitleFontSize),

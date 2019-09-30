@@ -9,6 +9,7 @@
 import Foundation
 
 protocol CurrentForecastPresenterProtocol {
-    func fetchCurrentForecast(success: @escaping(CurrentForecastViewModel) -> Void,
-                              failure: @escaping(Error) -> Void)
+    var viewModel: CurrentForecastViewModel? { get }
+    
+    func fetchCurrentForecast()
 }

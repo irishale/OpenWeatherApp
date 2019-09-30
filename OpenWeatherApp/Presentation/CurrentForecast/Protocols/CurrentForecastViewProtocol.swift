@@ -9,5 +9,9 @@
 import Foundation
 
 protocol CurrentForecastViewProtocol {
+    func startActivityIndicator()
+
+    func stopActivityIndicator()
     
+    func showPopup()
 }

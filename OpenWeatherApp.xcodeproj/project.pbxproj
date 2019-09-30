@@ -87,7 +87,7 @@
 				914C4C28234293DD00F3EC45 /* ContentControllers */,
 				914C4C27234293C900F3EC45 /* Protocols */,
 				914C4C142342857700F3EC45 /* FutureForecast.storyboard */,
-				914C4C18234286AA00F3EC45 /* FutureForecastTableViewManager.swift */,
+				914C4C162342861200F3EC45 /* FutureForecastViewController.swift */,
 				914C4C212342931300F3EC45 /* FutureForecastPresenter.swift */,
 			);
 			path = FutureForecast;
@@ -105,7 +105,7 @@
 		914C4C28234293DD00F3EC45 /* ContentControllers */ = {
 			isa = PBXGroup;
 			children = (
-				914C4C162342861200F3EC45 /* FutureForecastViewController.swift */,
+				914C4C18234286AA00F3EC45 /* FutureForecastTableViewManager.swift */,
 			);
 			path = ContentControllers;
 			sourceTree = "<group>";
