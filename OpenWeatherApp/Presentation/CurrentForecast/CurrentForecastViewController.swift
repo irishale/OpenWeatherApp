@@ -9,7 +9,29 @@
 import UIKit
 
 class CurrentForecastViewController: UIViewController {
+    // MARK: Outlets
+    @IBOutlet weak var weatherImageView: UIImageView!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var pressureLabel: UILabel!
+    @IBOutlet weak var humidityLabel: UILabel!
+    @IBOutlet weak var windSpeedLabel: UILabel!
+    @IBOutlet weak var windDirection: UILabel!
+    
+    // MARK: Injections
+    lazy var presenter: CurrentForecastPresenterProtocol = CurrentForecastPresenter(view: self)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    func setupInitialState() {
+        
+    }
+    
+}
+
+extension CurrentForecastViewController: CurrentForecastViewProtocol {
+    
 }

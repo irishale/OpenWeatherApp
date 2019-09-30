@@ -33,6 +33,9 @@
                         <viewLayoutGuide key="safeArea" id="Xf1-kV-28t"/>
                     </view>
                     <size key="freeformSize" width="414" height="400"/>
+                    <connections>
+                        <outlet property="tableView" destination="9de-ea-va4" id="5Dh-pg-ihA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="72T-t8-crk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

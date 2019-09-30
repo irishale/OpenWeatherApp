@@ -97,6 +97,15 @@
                         <viewLayoutGuide key="safeArea" id="uk2-zW-BE7"/>
                     </view>
                     <size key="freeformSize" width="413" height="400"/>
+                    <connections>
+                        <outlet property="humidityLabel" destination="rdn-GU-6BO" id="Dfd-Mj-Gmv"/>
+                        <outlet property="pressureLabel" destination="Xrh-Vt-8nb" id="1qd-jd-UWV"/>
+                        <outlet property="temperatureLabel" destination="zbg-kK-sye" id="83g-dE-z9q"/>
+                        <outlet property="titleLabel" destination="sAr-ZS-hY1" id="g8p-SV-82Y"/>
+                        <outlet property="weatherImageView" destination="dVM-Aw-rOo" id="Vkt-39-Am4"/>
+                        <outlet property="windDirection" destination="PQ0-C0-VFh" id="zhB-IV-xSG"/>
+                        <outlet property="windSpeedLabel" destination="2Zi-A3-SaG" id="pld-qw-ebU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h8O-P8-de5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

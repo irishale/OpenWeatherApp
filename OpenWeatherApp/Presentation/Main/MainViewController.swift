@@ -10,12 +10,9 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    let presenter = MainPresenter()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
-
+    
 }
 
