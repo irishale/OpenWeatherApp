@@ -16,7 +16,7 @@ class CurrentForecastPresenter {
     lazy var locationManager = LocationManager()
     lazy var imageLoader = ImageLoader()
     
-    // MARK: Properties
+    // MARK: Properties 
     var viewModel: CurrentForecastViewModel?
     
     init(view: CurrentForecastViewProtocol) {
