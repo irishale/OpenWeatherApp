@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol FutureForecastViewProtocol {
-    
+protocol FutureForecastViewProtocol: class {
+    func updateTable(viewModels: [FutureForecastViewModel])
 }

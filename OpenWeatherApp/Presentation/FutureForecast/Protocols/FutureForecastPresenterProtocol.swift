@@ -9,5 +9,7 @@
 import Foundation
 
 protocol FutureForecastPresenterProtocol {
+    var viewModels: [FutureForecastViewModel]? { get }
     
+    func fetchHourlyForecast()
 }

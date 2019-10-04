@@ -19,11 +19,15 @@ class FutureForecastViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        presenter.fetchHourlyForecast()
     }
 
 }
 
 
 extension FutureForecastViewController: FutureForecastViewProtocol {
-    
+    func updateTable(viewModels: [FutureForecastViewModel]) {
+        self.tableViewManager.configure(viewModels: viewModels)
+    }
 }
