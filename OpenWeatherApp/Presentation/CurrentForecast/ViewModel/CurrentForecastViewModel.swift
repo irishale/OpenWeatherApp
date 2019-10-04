@@ -18,6 +18,7 @@ struct CurrentForecastViewModel {
     let kWindDirectionTitle = "Wind direction"
     
     // MARK: Properties
+    let city: String!
     var weatherIconData: Data? = nil
     let temperature: String!
     let title: String!
@@ -28,13 +29,16 @@ struct CurrentForecastViewModel {
     var windDirecton: NSAttributedString
     
 
-    init(temperature: String,
-         title: String,
-         pressure: String,
-         humidity: String,
-         windSpeed: String,
-         windDirecton: String) {
+    init(
+        city: String,
+        temperature: String,
+        title: String,
+        pressure: String,
+        humidity: String,
+        windSpeed: String,
+        windDirecton: String) {
         
+        self.city = city
         self.temperature = temperature
         self.title = title
         self.pressure = CurrentForecastViewModel.configureAdditionalBlock(kPressureTitle, pressure)

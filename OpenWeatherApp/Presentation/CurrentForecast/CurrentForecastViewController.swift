@@ -52,11 +52,29 @@ extension CurrentForecastViewController: CurrentForecastViewProtocol {
         
     }
     
+    func updateCityTitle() {
+        if let viewModel = presenter.viewModel {
+            self.navigationController?.title = viewModel.city
+        }
+    }
+    
     func updateWeatherInfo() {
-        
+        if let viewModel = presenter.viewModel {
+            temperatureLabel.text = viewModel.temperature
+            titleLabel.text = viewModel.title
+            pressureLabel.attributedText = viewModel.pressure
+            humidityLabel.attributedText = viewModel.humidity
+            windSpeedLabel.attributedText = viewModel.windSpeed
+            windDirection.attributedText = viewModel.windDirecton
+        }
     }
     
     func updateImage() {
-        
+        if let viewModel = presenter.viewModel,
+            let imageData = viewModel.weatherIconData {
+            
+            guard let image = UIImage(data: imageData) else { return }
+            weatherImageView.image = image
+        }
     }
 }

@@ -9,6 +9,12 @@
 import Foundation
 
 protocol CurrentForecastViewProtocol {
+    func updateCityTitle()
+    
+    func updateWeatherInfo()    
+    
+    func updateImage()
+    
     func startActivityIndicator()
 
     func stopActivityIndicator()

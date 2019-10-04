@@ -16,7 +16,7 @@ class CurrentForecastPresenter {
     lazy var locationManager = LocationManager()
     lazy var imageLoader = ImageLoader()
     
-    // MARK: Properties 
+    // MARK: Properties
     var viewModel: CurrentForecastViewModel?
     
     init(view: CurrentForecastViewProtocol) {
@@ -29,11 +29,17 @@ class CurrentForecastPresenter {
             with: imageIcon,
             success: { [weak self] (data) in
                 self?.viewModel?.weatherIconData = data
-                self?.view.stopActivityIndicator()
+                
+                DispatchQueue.main.sync {
+                    self?.view.updateImage()
+                    self?.view.stopActivityIndicator()
+                }
             },
             failure: { [weak self] (error) in
-                self?.view.stopActivityIndicator()
-                self?.view.showPopup()
+                DispatchQueue.main.sync {
+                    self?.view.stopActivityIndicator()
+                    self?.view.showPopup()
+                }
             }
         )
     }
@@ -43,7 +49,7 @@ extension CurrentForecastPresenter: CurrentForecastPresenterProtocol {
 
     func fetchCurrentForecast() {
         if let coordinate = locationManager.coordinate {
-            
+        
             let latitudeString = String(format: "%d", Int(coordinate.latitude))
             let longitudeString = String(format: "%d", Int(coordinate.longitude))
             
@@ -60,6 +66,7 @@ extension CurrentForecastPresenter: CurrentForecastPresenterProtocol {
                         if let weather = weatherForecast.weather.first {
                            self?.viewModel =
                             CurrentForecastViewModel(
+                                city: weatherForecast.city,
                                 temperature: "\(weatherForecast.main.temperature)°С",
                                 title: weather.title,
                                 pressure: "\(weatherForecast.main.pressure) hPa",
@@ -69,13 +76,20 @@ extension CurrentForecastPresenter: CurrentForecastPresenterProtocol {
                             )
                             
                             self?.loadImage(imageIcon: weather.iconString)
-                            self?.view.stopActivityIndicator()
+                            
+                            DispatchQueue.main.sync {
+                                self?.view.updateCityTitle()
+                                self?.view.updateWeatherInfo()
+                                self?.view.stopActivityIndicator()
+                            }
                         }
                     }
                 },
                 failure: { [weak self] (error) in
-                    self?.view.stopActivityIndicator()
-                    self?.view.showPopup()
+                    DispatchQueue.main.sync {
+                        self?.view.stopActivityIndicator()
+                        self?.view.showPopup()
+                    }
                 }
             )
         } else {
