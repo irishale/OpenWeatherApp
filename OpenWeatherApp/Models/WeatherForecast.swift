@@ -10,6 +10,7 @@ import Foundation
 
 struct WeatherForecast: Decodable {
     let city: String
+    let timestamp: Int64
     
     let weather: [Weather]
     let wind: Wind
@@ -19,6 +20,7 @@ struct WeatherForecast: Decodable {
         case weather
         case wind
         case main
+        case timestamp = "dt"
     }
 }
 

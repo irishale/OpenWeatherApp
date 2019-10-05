@@ -25,23 +25,20 @@ class FutureForecastPresenter {
     
     private func loadImage(imageIcon: String,
                            success:@escaping (_ imageData: Data?) -> Void) {
-//        view.startActivityIndicator()
+        
+        DispatchQueue.main.async {
+            self.view.container?.startActivityIndicator()
+        }
         self.imageLoader.loadImage(
             with: imageIcon,
-            success: { [weak self] (data) in
+            success: { (data) in
                 success(data)
-//                self?.viewModel?.weatherIconData = data
-                
-//                DispatchQueue.main.sync {
-//                    self?.view.updateImage()
-//                    self?.view.stopActivityIndicator()
-//                }
             },
             failure: { [weak self] (error) in
-//                DispatchQueue.main.sync {
-//                    self?.view.stopActivityIndicator()
-//                    self?.view.showPopup()
-//                }
+                DispatchQueue.main.sync {
+                    self?.view.container?.stopActivityIndicator()
+                    self?.view.container?.showPopup()
+                }
             }
         )
     }
@@ -59,12 +56,16 @@ extension FutureForecastPresenter: FutureForecastPresenterProtocol {
                 "lon": longitudeString
             ]
             
+            DispatchQueue.main.async {
+                self.view.container?.startActivityIndicator()
+            }
             weatherService.fetchHourlyForecast(
                 params: params,
                 success: { [weak self] (hourlyForecast) in
                     if let hourlyForecast: HourlyForecast = hourlyForecast {
                         self?.viewModels = hourlyForecast.list.map({ (weather) -> FutureForecastViewModel in
-                            return FutureForecastViewModel(temperature: "\(weather.main.temperature)°С", title: weather.weather[0].title)
+                            
+                            return FutureForecastViewModel(temperature: "\(weather.main.temperature)°F", title: weather.weather[0].title, date: weather.date)
                         })
                         
                         for (index, forecast) in hourlyForecast.list.enumerated() {
@@ -73,23 +74,20 @@ extension FutureForecastPresenter: FutureForecastPresenterProtocol {
                                 self?.viewModels?[index].weatherIconData = data
                             })
                         }
-//                            self?.loadImage(imageIcon: weather.iconString)
-//
-                            DispatchQueue.main.sync {
-                                self?.view.updateTable(viewModels: self?.viewModels ?? [])
-//                                self?.view.updateCityTitle()
-//                                self?.view.updateWeatherInfo()
-//                                self?.view.stopActivityIndicator()
-                            }
+                        
+                        DispatchQueue.main.async {
+                            self?.view.updateTable(viewModels: self?.viewModels ?? [])
+                            self?.view.container?.stopActivityIndicator()
+                        }
                         
                     }
                 },
                 failure: { [weak self] (error) in
                    
-//                    DispatchQueue.main.sync {
-//                        self?.view.stopActivityIndicator()
-//                        self?.view.showPopup()
-//                    }
+                    DispatchQueue.main.async {
+                        self?.view.container?.stopActivityIndicator()
+                        self?.view.container?.showPopup()
+                    }
                 }
             )
         }

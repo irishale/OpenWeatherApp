@@ -16,6 +16,13 @@ struct HourlyForecast: Decodable {
 struct HourlyWeather: Decodable {
     let main: Main
     let weather: [Weather]
+    let date: String
+    
+    enum CodingKeys: String, CodingKey {
+        case main
+        case weather
+        case date = "dt_txt"
+    }
 }
 
 struct City: Decodable {

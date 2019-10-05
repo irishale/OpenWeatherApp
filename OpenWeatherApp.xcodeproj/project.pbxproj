@@ -165,6 +165,7 @@
 		91E14C9C2341E15400781CD7 /* OpenWeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				91EC6F352349169900210AB8 /* Extensions */,
 				91E14CB22341E78300781CD7 /* SupportingFiles */,
 				91E14CB12341E75D00781CD7 /* Presentation */,
 				91E14CB02341E60900781CD7 /* Models */,
@@ -229,6 +230,13 @@
 				91EC6F332347E64500210AB8 /* FutureForecastViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		91EC6F352349169900210AB8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

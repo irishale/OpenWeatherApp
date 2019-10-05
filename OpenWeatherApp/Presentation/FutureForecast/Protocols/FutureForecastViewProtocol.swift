@@ -9,5 +9,7 @@
 import Foundation
 
 protocol FutureForecastViewProtocol: class {
+    var container: MainViewProtocol? { get }
+    
     func updateTable(viewModels: [FutureForecastViewModel])
 }

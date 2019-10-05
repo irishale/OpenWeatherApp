@@ -33,20 +33,28 @@
                                     <segue destination="U0q-dZ-WN6" kind="embed" identifier="FutureForecastSegue" id="G0n-zp-2Jy"/>
                                 </connections>
                             </containerView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Kd8-35-vUi">
+                                <rect key="frame" x="197" y="465" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="FiO-Eu-27g" firstAttribute="top" secondItem="ON1-Fw-q4p" secondAttribute="bottom" constant="-1" id="Ofv-tE-BaT"/>
+                            <constraint firstItem="Kd8-35-vUi" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="QK6-Lk-fPm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ON1-Fw-q4p" secondAttribute="trailing" id="Syj-rc-cSV"/>
                             <constraint firstItem="ON1-Fw-q4p" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ViX-Vi-UKI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FiO-Eu-27g" secondAttribute="bottom" id="bh9-vb-8De"/>
                             <constraint firstItem="ON1-Fw-q4p" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cd1-ej-VrP"/>
+                            <constraint firstItem="Kd8-35-vUi" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ckU-IQ-Yev"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="leading" secondItem="FiO-Eu-27g" secondAttribute="leading" constant="9" id="ilj-ea-ef1"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FiO-Eu-27g" secondAttribute="trailing" id="yoe-zR-39U"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="PEe-iU-GvM"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Kd8-35-vUi" id="E4f-D0-uc9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

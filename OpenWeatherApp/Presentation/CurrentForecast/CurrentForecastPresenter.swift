@@ -24,7 +24,9 @@ class CurrentForecastPresenter {
     }
     
     private func loadImage(imageIcon: String) {
-//        view.startActivityIndicator()
+        DispatchQueue.main.async {
+            self.view.container?.startActivityIndicator()
+        }
         self.imageLoader.loadImage(
             with: imageIcon,
             success: { [weak self] (data) in
@@ -32,13 +34,13 @@ class CurrentForecastPresenter {
                 
                 DispatchQueue.main.sync {
                     self?.view.updateImage()
-//                    self?.view.stopActivityIndicator()
+                    self?.view.container?.stopActivityIndicator()
                 }
             },
             failure: { [weak self] (error) in
                 DispatchQueue.main.sync {
-//                    self?.view.stopActivityIndicator()
-//                    self?.view.showPopup()
+                    self?.view.container?.stopActivityIndicator()
+                    self?.view.container?.showPopup()
                 }
             }
         )
@@ -46,7 +48,6 @@ class CurrentForecastPresenter {
 }
 
 extension CurrentForecastPresenter: CurrentForecastPresenterProtocol {
-
     func fetchCurrentForecast() {
         if let coordinate = locationManager.coordinate {
         
@@ -58,42 +59,45 @@ extension CurrentForecastPresenter: CurrentForecastPresenterProtocol {
                 "lon": longitudeString
             ]
             
-//            view.startActivityIndicator()
+            DispatchQueue.main.async {
+                self.view.container?.startActivityIndicator()
+            }
             weatherService.fetchCurrentForecast(
                 params: params,
-                success: { [weak self] (weatherForecast) in
-                    if let weatherForecast: WeatherForecast = weatherForecast {
-                        if let weather = weatherForecast.weather.first {
-                           self?.viewModel =
+                success: { [unowned self] (weatherForecast) in
+                    if let weatherForecast: WeatherForecast = weatherForecast,
+                        let weather = weatherForecast.weather.first {
+                        
+                        self.viewModel =
                             CurrentForecastViewModel(
+                                timestamp: weatherForecast.timestamp,
                                 city: weatherForecast.city,
-                                temperature: "\(weatherForecast.main.temperature)°С",
+                                temperature: "\(weatherForecast.main.temperature)°F",
                                 title: weather.title,
                                 pressure: "\(weatherForecast.main.pressure) hPa",
                                 humidity: "\(weatherForecast.main.humidity)%",
                                 windSpeed: "\(weatherForecast.wind.speed) miles/hour",
                                 windDirecton: "\(weatherForecast.wind.degrees)°"
                             )
-                            
-                            self?.loadImage(imageIcon: weather.iconString)
-                            
-                            DispatchQueue.main.sync {
-                                self?.view.updateCityTitle()
-                                self?.view.updateWeatherInfo()
-//                                self?.view.stopActivityIndicator()
+
+                            self.loadImage(imageIcon: weather.iconString)
+
+                            DispatchQueue.main.async {
+                                self.view.updateCityTitle()
+                                self.view.updateWeatherInfo()
+                                self.view.container?.stopActivityIndicator()
                             }
-                        }
                     }
                 },
-                failure: { [weak self] (error) in
-                    DispatchQueue.main.sync {
-//                        self?.view.stopActivityIndicator()
-//                        self?.view.showPopup()
+                failure: { [unowned self] (error) in
+                    DispatchQueue.main.async {
+                        self.view.container?.stopActivityIndicator()
+                        self.view.container?.showPopup()
                     }
                 }
             )
         } else {
-//            view.showPopup()
+            view.container?.showPopup()
         }
     }
 }

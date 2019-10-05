@@ -9,6 +9,8 @@
 import Foundation
 
 protocol CurrentForecastViewProtocol {
+    var container: MainViewProtocol? { get }
+    
     func updateCityTitle()
     
     func updateWeatherInfo()    

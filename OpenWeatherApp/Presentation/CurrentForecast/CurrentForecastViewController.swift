@@ -11,6 +11,7 @@ import UIKit
 class CurrentForecastViewController: UIViewController {
     
     // MARK: Outlets
+    @IBOutlet weak var currentDateLabel: UILabel!
     @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -37,25 +38,12 @@ class CurrentForecastViewController: UIViewController {
     func setupInitialState() {
         
     }
-    
 }
 
 extension CurrentForecastViewController: CurrentForecastViewProtocol {
-    func showPopup() {
-        
-    }
-    
-    func startActivityIndicator() {
-        
-    }
-    
-    func stopActivityIndicator() {
-        
-    }
-    
     func updateCityTitle() {
         if let viewModel = presenter.viewModel {
-            self.navigationController?.title = viewModel.city
+            container?.updateNavigationTitle(title: viewModel.city)
         }
     }
     
@@ -67,14 +55,15 @@ extension CurrentForecastViewController: CurrentForecastViewProtocol {
             humidityLabel.attributedText = viewModel.humidity
             windSpeedLabel.attributedText = viewModel.windSpeed
             windDirection.attributedText = viewModel.windDirecton
+            currentDateLabel.attributedText = viewModel.date
         }
     }
     
     func updateImage() {
         if let viewModel = presenter.viewModel,
             let imageData = viewModel.weatherIconData {
-            
             guard let image = UIImage(data: imageData) else { return }
+            
             weatherImageView.image = image
         }
     }
