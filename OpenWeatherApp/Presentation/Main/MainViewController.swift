@@ -46,11 +46,15 @@ extension MainViewController: MainViewProtocol {
     }
     
     func showPopup() {
-        let alert = UIAlertController(title: "Network Error", message: "Server is temporarily unavailable.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Network Error",
+                                      message: "Server is temporarily unavailable.",
+                                      preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
         
-        self.present(alert, animated: true)
+        if !(self.navigationController?.visibleViewController?.isKind(of: UIAlertController.self))! {
+            self.present(alert, animated: true)
+        }
     }
     
     func startActivityIndicator() {

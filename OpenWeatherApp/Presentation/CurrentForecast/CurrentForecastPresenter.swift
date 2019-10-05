@@ -67,7 +67,7 @@ extension CurrentForecastPresenter: CurrentForecastPresenterProtocol {
             weatherService.fetchCurrentForecast(
                 params: params,
                 success: { [unowned self] (weatherForecast) in
-                    if let weatherForecast: WeatherForecast = weatherForecast,
+                    if let weatherForecast: CurrentForecast = weatherForecast,
                         let weather = weatherForecast.weather.first {
                         
                         self.viewModel =

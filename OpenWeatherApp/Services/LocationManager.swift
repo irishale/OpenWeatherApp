@@ -10,6 +10,11 @@ import Foundation
 import CoreLocation
 
 class LocationManager: NSObject {
+    
+    // MARK: Constants
+    let kLocationDidUpdate = "kLocationDidUpdate"
+    
+    // MARK: Properties
     private lazy var locationManager: CLLocationManager = {
         var locationManager = CLLocationManager()
         locationManager.delegate = self

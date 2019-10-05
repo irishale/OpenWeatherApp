@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct WeatherForecast: Decodable {
+struct CurrentForecast: Decodable {
     let city: String
     let timestamp: Int64
     

@@ -9,9 +9,12 @@
 import Foundation
 
 class ImageLoader {
+    
+    // MARK: Constants
     let kBaseUrl = "http://openweathermap.org"
     let kImagePath = "/img/w"
     
+    // MARK: Properties
     let defaultSession = URLSession(configuration: .default)
     
     var urlComponents: URLComponents? {
