@@ -14,10 +14,4 @@ protocol CurrentForecastViewProtocol {
     func updateWeatherInfo()    
     
     func updateImage()
-    
-    func startActivityIndicator()
-
-    func stopActivityIndicator()
-    
-    func showPopup()
 }

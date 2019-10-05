@@ -85,7 +85,7 @@ extension FutureForecastPresenter: FutureForecastPresenterProtocol {
                     }
                 },
                 failure: { [weak self] (error) in
-                    print(error)
+                   
 //                    DispatchQueue.main.sync {
 //                        self?.view.stopActivityIndicator()
 //                        self?.view.showPopup()

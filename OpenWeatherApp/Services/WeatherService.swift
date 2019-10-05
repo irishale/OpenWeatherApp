@@ -55,8 +55,7 @@ class WeatherService {
                     let decoder = JSONDecoder()
                     let jsonResponse = try JSONSerialization.jsonObject(with:
                         data, options: [])
-                    print(jsonResponse)
-
+                   
                     let model = try decoder.decode(HourlyForecast.self, from:
                         data)
                     success(model)

@@ -24,7 +24,7 @@ class CurrentForecastPresenter {
     }
     
     private func loadImage(imageIcon: String) {
-        view.startActivityIndicator()
+//        view.startActivityIndicator()
         self.imageLoader.loadImage(
             with: imageIcon,
             success: { [weak self] (data) in
@@ -32,13 +32,13 @@ class CurrentForecastPresenter {
                 
                 DispatchQueue.main.sync {
                     self?.view.updateImage()
-                    self?.view.stopActivityIndicator()
+//                    self?.view.stopActivityIndicator()
                 }
             },
             failure: { [weak self] (error) in
                 DispatchQueue.main.sync {
-                    self?.view.stopActivityIndicator()
-                    self?.view.showPopup()
+//                    self?.view.stopActivityIndicator()
+//                    self?.view.showPopup()
                 }
             }
         )
@@ -58,7 +58,7 @@ extension CurrentForecastPresenter: CurrentForecastPresenterProtocol {
                 "lon": longitudeString
             ]
             
-            view.startActivityIndicator()
+//            view.startActivityIndicator()
             weatherService.fetchCurrentForecast(
                 params: params,
                 success: { [weak self] (weatherForecast) in
@@ -80,20 +80,20 @@ extension CurrentForecastPresenter: CurrentForecastPresenterProtocol {
                             DispatchQueue.main.sync {
                                 self?.view.updateCityTitle()
                                 self?.view.updateWeatherInfo()
-                                self?.view.stopActivityIndicator()
+//                                self?.view.stopActivityIndicator()
                             }
                         }
                     }
                 },
                 failure: { [weak self] (error) in
                     DispatchQueue.main.sync {
-                        self?.view.stopActivityIndicator()
-                        self?.view.showPopup()
+//                        self?.view.stopActivityIndicator()
+//                        self?.view.showPopup()
                     }
                 }
             )
         } else {
-            view.showPopup()
+//            view.showPopup()
         }
     }
 }

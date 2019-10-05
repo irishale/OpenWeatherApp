@@ -24,13 +24,13 @@
                                     <constraint firstAttribute="height" constant="250" id="JJ8-OQ-Cmj"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="Res-Nu-csk" kind="embed" id="d1v-Bo-bMc"/>
+                                    <segue destination="Res-Nu-csk" kind="embed" identifier="CurrentForecastSegue" id="d1v-Bo-bMc"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FiO-Eu-27g">
                                 <rect key="frame" x="-9" y="337" width="423" height="525"/>
                                 <connections>
-                                    <segue destination="U0q-dZ-WN6" kind="embed" id="G0n-zp-2Jy"/>
+                                    <segue destination="U0q-dZ-WN6" kind="embed" identifier="FutureForecastSegue" id="G0n-zp-2Jy"/>
                                 </connections>
                             </containerView>
                         </subviews>

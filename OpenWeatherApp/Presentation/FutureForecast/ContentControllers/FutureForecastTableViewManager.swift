@@ -50,11 +50,14 @@ extension FutureForecastTableViewManager: UITableViewDataSource {
 extension FutureForecastTableViewManager: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        if let cell: HourlyForecastTableViewCell = cell as? HourlyForecastTableViewCell,
-            let viewModel = viewModels?[indexPath.row] {
-            
-            cell.configure(withViewModel: viewModel)
+        switch cell {
+        case is HourlyForecastTableViewCell:
+            let unwrappedCell = cell as! HourlyForecastTableViewCell
+            if let viewModel = viewModels?[indexPath.row] {
+                unwrappedCell.configure(withViewModel: viewModel)
+            }
+        default:
+            return
         }
-        
     }
 }

@@ -16,6 +16,7 @@ class FutureForecastViewController: UIViewController {
     // MARK: Injections
     lazy var tableViewManager = FutureForecastTableViewManager(tableView: tableView)
     lazy var presenter: FutureForecastPresenterProtocol = FutureForecastPresenter(view: self)
+    var container: MainViewProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
