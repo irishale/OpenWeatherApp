@@ -34,10 +34,10 @@ class FutureForecastPresenter {
             success: { (data) in
                 success(data)
             },
-            failure: { [weak self] (error) in
+            failure: { [unowned self] (error) in
                 DispatchQueue.main.sync {
-                    self?.view.container?.stopActivityIndicator()
-                    self?.view.container?.showPopup()
+                    self.view.container?.stopActivityIndicator()
+                    self.view.container?.showPopup()
                 }
             }
         )
@@ -61,32 +61,37 @@ extension FutureForecastPresenter: FutureForecastPresenterProtocol {
             }
             weatherService.fetchHourlyForecast(
                 params: params,
-                success: { [weak self] (hourlyForecast) in
+                success: { [unowned self] (hourlyForecast) in
                     if let hourlyForecast: HourlyForecast = hourlyForecast {
-                        self?.viewModels = hourlyForecast.list.map({ (weather) -> FutureForecastViewModel in
+                        self.viewModels = hourlyForecast.list.map({ (weather) -> FutureForecastViewModel in
                             
-                            return FutureForecastViewModel(temperature: "\(weather.main.temperature)°F", title: weather.weather[0].title, date: weather.date)
+                            let weatherFirstObject = weather.weather[0]
+                            return FutureForecastViewModel(temperature: "\(weather.main.temperature)°F", title: weatherFirstObject.title, date: weather.date)
+                            
                         })
                         
                         for (index, forecast) in hourlyForecast.list.enumerated() {
+                            let weatherFirstObject = forecast.weather[0]
                             
-                            self?.loadImage(imageIcon: forecast.weather[0].iconString, success: { (data) in
-                                self?.viewModels?[index].weatherIconData = data
+                            self.loadImage(imageIcon: weatherFirstObject.iconString, success: { (data) in
+                                self.viewModels?[index].weatherIconData = data
                             })
                         }
                         
                         DispatchQueue.main.async {
-                            self?.view.updateTable(viewModels: self?.viewModels ?? [])
-                            self?.view.container?.stopActivityIndicator()
+                            self.view.updateTable(viewModels: self.viewModels ?? [])
+                            self.view.container?.stopActivityIndicator()
+                            self.view.tableVisibility(hidden: false)
                         }
                         
                     }
                 },
-                failure: { [weak self] (error) in
+                failure: { [unowned self] (error) in
                    
                     DispatchQueue.main.async {
-                        self?.view.container?.stopActivityIndicator()
-                        self?.view.container?.showPopup()
+                        self.view.container?.stopActivityIndicator()
+                        self.view.tableVisibility(hidden: true)
+                        self.view.container?.showPopup()
                     }
                 }
             )

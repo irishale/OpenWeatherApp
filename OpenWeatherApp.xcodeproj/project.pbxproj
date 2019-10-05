@@ -33,6 +33,9 @@
 		91E14CB72341EE6D00781CD7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E14CB62341EE6D00781CD7 /* LocationManager.swift */; };
 		91E14CB92341FD1400781CD7 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E14CB82341FD1400781CD7 /* WeatherService.swift */; };
 		91EC6F342347E64500210AB8 /* FutureForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EC6F332347E64500210AB8 /* FutureForecastViewModel.swift */; };
+		91EC6F372349332200210AB8 /* NSAttributedString+AddinionalBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EC6F362349332200210AB8 /* NSAttributedString+AddinionalBlock.swift */; };
+		91EC6F392349385700210AB8 /* Date+Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EC6F382349385700210AB8 /* Date+Timestamp.swift */; };
+		91EC6F3B234947E100210AB8 /* URLSession+CancelTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EC6F3A234947E100210AB8 /* URLSession+CancelTasks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +67,9 @@
 		91E14CB62341EE6D00781CD7 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		91E14CB82341FD1400781CD7 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		91EC6F332347E64500210AB8 /* FutureForecastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureForecastViewModel.swift; sourceTree = "<group>"; };
+		91EC6F362349332200210AB8 /* NSAttributedString+AddinionalBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+AddinionalBlock.swift"; sourceTree = "<group>"; };
+		91EC6F382349385700210AB8 /* Date+Timestamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Timestamp.swift"; sourceTree = "<group>"; };
+		91EC6F3A234947E100210AB8 /* URLSession+CancelTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+CancelTasks.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +241,9 @@
 		91EC6F352349169900210AB8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				91EC6F362349332200210AB8 /* NSAttributedString+AddinionalBlock.swift */,
+				91EC6F382349385700210AB8 /* Date+Timestamp.swift */,
+				91EC6F3A234947E100210AB8 /* URLSession+CancelTasks.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -328,10 +337,13 @@
 				914C4C112342850F00F3EC45 /* CurrentForecastViewController.swift in Sources */,
 				914C4C0B234267DC00F3EC45 /* Constants.swift in Sources */,
 				914C4C322345515100F3EC45 /* HourlyForecastTableViewCell.swift in Sources */,
+				91EC6F392349385700210AB8 /* Date+Timestamp.swift in Sources */,
 				91EC6F342347E64500210AB8 /* FutureForecastViewModel.swift in Sources */,
 				91E14CB72341EE6D00781CD7 /* LocationManager.swift in Sources */,
 				914C4C0D234277DD00F3EC45 /* ImageLoader.swift in Sources */,
+				91EC6F3B234947E100210AB8 /* URLSession+CancelTasks.swift in Sources */,
 				914C4C2C234297D000F3EC45 /* CurrentForecastViewModel.swift in Sources */,
+				91EC6F372349332200210AB8 /* NSAttributedString+AddinionalBlock.swift in Sources */,
 				914C4C2023428A7400F3EC45 /* CurrentForecastPresenterProtocol.swift in Sources */,
 				914C4C1E234289EE00F3EC45 /* CurrentForecastViewProtocol.swift in Sources */,
 				914C4C262342937F00F3EC45 /* FutureForecastPresenterProtocol.swift in Sources */,

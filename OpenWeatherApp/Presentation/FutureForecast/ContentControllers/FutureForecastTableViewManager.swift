@@ -10,8 +10,11 @@ import UIKit
 
 class FutureForecastTableViewManager: NSObject {
     
+    // MARK: Constants
+    let kRowHeight: CGFloat = 70
+    let identifier = "HourlyForecastTableViewCell"
+    
     var tableView: UITableView!
-    private let identifier = "HourlyForecastTableViewCell"
     private var viewModels: [FutureForecastViewModel]?
     
     init(tableView: UITableView) {
@@ -43,7 +46,7 @@ extension FutureForecastTableViewManager: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return kRowHeight
     }
 }
 

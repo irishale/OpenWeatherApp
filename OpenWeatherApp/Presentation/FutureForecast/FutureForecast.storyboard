@@ -18,17 +18,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9de-ea-va4">
-                                <rect key="frame" x="0.0" y="44" width="414" height="322"/>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9de-ea-va4">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="9de-ea-va4" firstAttribute="leading" secondItem="Xf1-kV-28t" secondAttribute="leading" id="Aj1-Hs-w4K"/>
-                            <constraint firstItem="Xf1-kV-28t" firstAttribute="bottom" secondItem="9de-ea-va4" secondAttribute="bottom" id="RDJ-HG-Ap9"/>
-                            <constraint firstItem="9de-ea-va4" firstAttribute="top" secondItem="Xf1-kV-28t" secondAttribute="top" id="Y5h-PK-yxM"/>
-                            <constraint firstItem="Xf1-kV-28t" firstAttribute="trailing" secondItem="9de-ea-va4" secondAttribute="trailing" id="xwb-7t-Hzg"/>
+                            <constraint firstItem="9de-ea-va4" firstAttribute="leading" secondItem="vW1-lA-qZ2" secondAttribute="leading" id="Aj1-Hs-w4K"/>
+                            <constraint firstAttribute="bottom" secondItem="9de-ea-va4" secondAttribute="bottom" id="RDJ-HG-Ap9"/>
+                            <constraint firstItem="9de-ea-va4" firstAttribute="top" secondItem="vW1-lA-qZ2" secondAttribute="top" id="Y5h-PK-yxM"/>
+                            <constraint firstAttribute="trailing" secondItem="9de-ea-va4" secondAttribute="trailing" id="xwb-7t-Hzg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Xf1-kV-28t"/>
                     </view>

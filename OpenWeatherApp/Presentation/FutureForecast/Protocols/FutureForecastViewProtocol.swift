@@ -12,4 +12,6 @@ protocol FutureForecastViewProtocol: class {
     var container: MainViewProtocol? { get }
     
     func updateTable(viewModels: [FutureForecastViewModel])
+    
+    func tableVisibility(hidden: Bool)
 }

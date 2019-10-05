@@ -21,6 +21,8 @@ class CurrentForecastViewController: UIViewController {
     @IBOutlet weak var windSpeedLabel: UILabel!
     @IBOutlet weak var windDirection: UILabel!
     
+    @IBOutlet weak var stubView: UIView!
+    
     // MARK: Injections
     lazy var presenter: CurrentForecastPresenterProtocol = CurrentForecastPresenter(view: self)
     var container: MainViewProtocol?
@@ -41,6 +43,10 @@ class CurrentForecastViewController: UIViewController {
 }
 
 extension CurrentForecastViewController: CurrentForecastViewProtocol {
+    func stubVisibility(hidden: Bool) {
+        stubView.isHidden = hidden
+    }
+    
     func updateCityTitle() {
         if let viewModel = presenter.viewModel {
             container?.updateNavigationTitle(title: viewModel.city)

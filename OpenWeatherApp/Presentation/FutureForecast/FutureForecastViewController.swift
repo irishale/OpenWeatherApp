@@ -26,9 +26,12 @@ class FutureForecastViewController: UIViewController {
 
 }
 
-
 extension FutureForecastViewController: FutureForecastViewProtocol {
     func updateTable(viewModels: [FutureForecastViewModel]) {
         self.tableViewManager.configure(viewModels: viewModels)
+    }
+    
+    func tableVisibility(hidden: Bool) {
+        tableView.isHidden = hidden
     }
 }

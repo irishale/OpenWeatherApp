@@ -29,18 +29,20 @@ class CurrentForecastPresenter {
         }
         self.imageLoader.loadImage(
             with: imageIcon,
-            success: { [weak self] (data) in
-                self?.viewModel?.weatherIconData = data
+            success: { [unowned self] (data) in
+                self.viewModel?.weatherIconData = data
                 
                 DispatchQueue.main.sync {
-                    self?.view.updateImage()
-                    self?.view.container?.stopActivityIndicator()
+                    self.view.updateImage()
+                    self.view.container?.stopActivityIndicator()
+                    self.view.stubVisibility(hidden: true)
                 }
             },
-            failure: { [weak self] (error) in
+            failure: { [unowned self] (error) in
                 DispatchQueue.main.sync {
-                    self?.view.container?.stopActivityIndicator()
-                    self?.view.container?.showPopup()
+                    self.view.container?.stopActivityIndicator()
+                    self.view.container?.showPopup()
+                    self.view.stubVisibility(hidden: false)
                 }
             }
         )
@@ -86,6 +88,7 @@ extension CurrentForecastPresenter: CurrentForecastPresenterProtocol {
                                 self.view.updateCityTitle()
                                 self.view.updateWeatherInfo()
                                 self.view.container?.stopActivityIndicator()
+                                self.view.stubVisibility(hidden: true)
                             }
                     }
                 },
@@ -93,11 +96,13 @@ extension CurrentForecastPresenter: CurrentForecastPresenterProtocol {
                     DispatchQueue.main.async {
                         self.view.container?.stopActivityIndicator()
                         self.view.container?.showPopup()
+                        self.view.stubVisibility(hidden: false)
                     }
                 }
             )
         } else {
             view.container?.showPopup()
+            view.stubVisibility(hidden: false)
         }
     }
 }

@@ -16,4 +16,6 @@ protocol CurrentForecastViewProtocol {
     func updateWeatherInfo()    
     
     func updateImage()
+    
+    func stubVisibility(hidden: Bool)
 }

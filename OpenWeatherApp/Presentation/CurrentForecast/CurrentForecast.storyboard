@@ -118,16 +118,52 @@
                                     <constraint firstItem="zbg-kK-sye" firstAttribute="leading" secondItem="dVM-Aw-rOo" secondAttribute="leading" id="wee-ma-9G2"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8SO-Np-ZDa">
+                                <rect key="frame" x="0.0" y="0.0" width="700" height="400"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ju8-c2-n3e">
+                                        <rect key="frame" x="323" y="170" width="54" height="60"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="😞">
+                                                <attributes>
+                                                    <font key="NSFont" size="50" name=".AppleColorEmojiUI"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorry, service unavailable" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4TR-Og-Pd9">
+                                        <rect key="frame" x="253" y="140.5" width="194" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="53n-mN-hng"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.92157477140426636" green="0.92155748605728149" blue="0.92156928777694702" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="Ju8-c2-n3e" firstAttribute="centerX" secondItem="8SO-Np-ZDa" secondAttribute="centerX" id="Fnj-rq-qv2"/>
+                                    <constraint firstItem="4TR-Og-Pd9" firstAttribute="centerX" secondItem="Ju8-c2-n3e" secondAttribute="centerX" id="LOS-OR-oee"/>
+                                    <constraint firstItem="Ju8-c2-n3e" firstAttribute="centerY" secondItem="8SO-Np-ZDa" secondAttribute="centerY" id="euF-zw-V46"/>
+                                    <constraint firstItem="Ju8-c2-n3e" firstAttribute="top" secondItem="4TR-Og-Pd9" secondAttribute="bottom" constant="8.5" id="l2Y-aa-PTu"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ix4-hO-eEV" firstAttribute="top" secondItem="lhv-e6-oiq" secondAttribute="top" id="2u6-OL-nAt"/>
                             <constraint firstItem="x2U-WA-0pB" firstAttribute="top" secondItem="lhv-e6-oiq" secondAttribute="top" id="4Sa-QL-96F"/>
                             <constraint firstAttribute="bottom" secondItem="x2U-WA-0pB" secondAttribute="bottom" id="BQT-7L-amo"/>
+                            <constraint firstItem="8SO-Np-ZDa" firstAttribute="leading" secondItem="lhv-e6-oiq" secondAttribute="leading" id="Bg9-z6-Rfv"/>
+                            <constraint firstAttribute="trailing" secondItem="8SO-Np-ZDa" secondAttribute="trailing" id="DT2-6e-lyJ"/>
                             <constraint firstAttribute="trailing" secondItem="x2U-WA-0pB" secondAttribute="trailing" constant="12" id="I90-d8-V12"/>
+                            <constraint firstItem="ix4-hO-eEV" firstAttribute="bottom" secondItem="8SO-Np-ZDa" secondAttribute="bottom" id="QUm-ml-OOf"/>
                             <constraint firstItem="ix4-hO-eEV" firstAttribute="bottom" secondItem="lhv-e6-oiq" secondAttribute="bottom" id="bCd-rW-IXc"/>
                             <constraint firstItem="ix4-hO-eEV" firstAttribute="leading" secondItem="lhv-e6-oiq" secondAttribute="leading" constant="12" id="e48-CL-4xr"/>
                             <constraint firstItem="x2U-WA-0pB" firstAttribute="leading" secondItem="ix4-hO-eEV" secondAttribute="trailing" constant="12" id="pV1-nZ-gGI"/>
+                            <constraint firstItem="8SO-Np-ZDa" firstAttribute="top" secondItem="lhv-e6-oiq" secondAttribute="top" id="vxN-Ms-xfA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uk2-zW-BE7"/>
                     </view>
@@ -136,6 +172,7 @@
                         <outlet property="currentDateLabel" destination="MRQ-EG-GA8" id="Ph0-dZ-PER"/>
                         <outlet property="humidityLabel" destination="rdn-GU-6BO" id="Dfd-Mj-Gmv"/>
                         <outlet property="pressureLabel" destination="Xrh-Vt-8nb" id="1qd-jd-UWV"/>
+                        <outlet property="stubView" destination="8SO-Np-ZDa" id="pgF-Rl-za3"/>
                         <outlet property="temperatureLabel" destination="zbg-kK-sye" id="83g-dE-z9q"/>
                         <outlet property="titleLabel" destination="sAr-ZS-hY1" id="g8p-SV-82Y"/>
                         <outlet property="weatherImageView" destination="dVM-Aw-rOo" id="Vkt-39-Am4"/>
